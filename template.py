@@ -13,7 +13,7 @@ def setup_logging(level=logging.INFO, format='[%(asctime)s]: %(message)s:'):
         # Any cleanup or finalization can be done here if needed
         logging.shutdown()
 
-project_name = "mlProject"
+project_name = "ml_project"
 
 list_of_files = [
     ".github/workflows/.gitkeep",
