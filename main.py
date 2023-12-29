@@ -2,6 +2,8 @@ from ml_project import logger
 from ml_project.pipeline.stage_01_data_ingestion import DataIngestionTrainingPipeline
 from ml_project.pipeline.stage_02_data_validation import DataValidationTrainingPipeline
 from ml_project.pipeline.stage_03_data_transformation import DataTransformationTrainingPipeline
+from ml_project.pipeline.stage_04_model_trainer import ModelTrainerPipeline
+
 
 def run_pipeline_stage(stage_name, pipeline_class):
     """
@@ -24,3 +26,4 @@ def run_pipeline_stage(stage_name, pipeline_class):
 run_pipeline_stage('Data Ingestion Stage', DataIngestionTrainingPipeline)
 run_pipeline_stage('Data Validation Stage', DataValidationTrainingPipeline)
 run_pipeline_stage('Data Transformation Stage', DataTransformationTrainingPipeline)
+run_pipeline_stage('Model Training Stage', ModelTrainerPipeline)
