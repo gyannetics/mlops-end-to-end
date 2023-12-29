@@ -34,12 +34,18 @@ import os
 import sys
 import logging
 from logging.handlers import TimedRotatingFileHandler
+from datetime import datetime
 
 # Logging configuration
 LOGGING_STR = "[%(asctime)s: %(levelname)s: %(module)s: %(message)s]"
-LOG_DIR = "logs"
-os.makedirs(LOG_DIR, exist_ok=True)
-log_filepath = os.path.join(LOG_DIR, "running_logs.log")
+BASE_LOG_DIR = "logs"
+
+# Create log directory based on the current year and month
+current_time = datetime.now()
+year_month_dir = os.path.join(BASE_LOG_DIR, current_time.strftime("%Y/%m"))
+os.makedirs(year_month_dir, exist_ok=True)
+
+log_filepath = os.path.join(year_month_dir, "running_logs.log")
 
 # Create a logger
 logger = logging.getLogger("ml_project_logger")
@@ -64,3 +70,4 @@ if not logger.handlers:
 
 # Example of logging usage (you can remove or comment out this part in production)
 logger.info("Logging setup complete")
+
